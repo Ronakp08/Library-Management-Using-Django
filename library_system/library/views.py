@@ -31,7 +31,7 @@ class BorrowedBookViewSet(viewsets.ModelViewSet):
             borrowed_books = BorrowedBook.objects.filter(BookID=book_id)
         else:
             return Response([])
-
+        
         serializer = BorrowedBookSerializer(borrowed_books, many=True)
         return Response(serializer.data)
 
