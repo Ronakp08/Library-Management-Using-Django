@@ -41,5 +41,5 @@ class BorrowedBookViewSet(viewsets.ModelViewSet):
         user_id = request.query_params.get('user_id')
 
         borrowed_books = BorrowedBook.objects.filter(UserID=user_id)
-        return_dates = borrowed_books.values('BookID__Title', 'ReturnDate')
+        return_dates = borrowed_books.values('UserID', 'BookID__Title', 'ReturnDate')
         return Response(return_dates)
